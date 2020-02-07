@@ -5,7 +5,7 @@ class Home extends Component {
   render() {
     return (
     <div className="App">
-      <h1>Moovli</h1>
+      <h1 id="title">Moovli</h1>
       <MapContainer/>
     </div>
     );

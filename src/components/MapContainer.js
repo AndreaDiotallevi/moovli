@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import { Map, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
 
+
+const renderMovies = (lat, lng) => 
+fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyC6o-ZPlBBauC5BNQpwsOyOWknKd63QCWY`)
+.then(res => (res.ok ? res : Promise.reject(res)))
+.then(res => res.json())
+.then(res => console.log(res.results[0].formatted_address.split(", ").slice(-1)[0]))
+
 class MapContainer extends Component {
   onClick(t, map, coord) {
     const { latLng } = coord;
     const lat = latLng.lat();
     const lng = latLng.lng();
-    console.log(lat, lng)
+    renderMovies(lat, lng)
   }
 
   render() {

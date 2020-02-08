@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Map, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 // const renderMovies = (lat, lng) => 
 // fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.REACT_APP_GEO_CODE_API}`)
@@ -8,15 +8,11 @@ import { Map, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
 // .then(res => console.log(res.results[0].formatted_address.split(", ").slice(-1)[0]))
 
 class MapContainer extends Component {
-  // onClick(t, map, coord) {
-  //   const { latLng } = coord;
-  //   const lat = latLng.lat();
-  //   const lng = latLng.lng();
-  //   renderMovies(lat, lng)
-  // }
-
   onChoice = (t, map, coord) => {
-    this.props.onChoice(t, map, coord);
+    const { latLng } = coord;
+    const lat = latLng.lat();
+    const lng = latLng.lng();
+    this.props.onChoice(lat, lng);
   }
 
   render() {
@@ -31,7 +27,6 @@ class MapContainer extends Component {
             lng: -0.118092,
           }}
         >
-          <InfoWindow onClose={this.onInfoWindowClose} />
         </Map>
       </div>
     );

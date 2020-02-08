@@ -1,15 +1,22 @@
 import React from 'react';
-import Moovie from './Moovie'
 
 const Moovies = (props) => {
   return (
-    <div id='movies'>
+    <div data-test='moovies'>
       <h1>
         You have chosen {props.country}!
       </h1>
-      {props.movies.map(movie =>
-        <Moovie />
-      )}
+      <div data-test='moovies-container'>
+        <ul>
+          {props.moovies.map(moovie => 
+            <li key={moovie.id}>
+              <h3>
+                {moovie.title}
+              </h3>
+            </li>
+          )}
+        </ul>
+      </div>
     </div>
   )
 }

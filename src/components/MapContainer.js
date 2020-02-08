@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Map, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
-
+require('dotenv').config()
 
 const renderMovies = (lat, lng) => 
-fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyC6o-ZPlBBauC5BNQpwsOyOWknKd63QCWY`)
+fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.REACT_APP_GEO_CODE_API}`)
 .then(res => (res.ok ? res : Promise.reject(res)))
 .then(res => res.json())
 .then(res => console.log(res.results[0].formatted_address.split(", ").slice(-1)[0]))
@@ -36,5 +36,5 @@ class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyASYegQUtea-hnik-mLh749REFM5DVS_iA',
+  apiKey: process.env.REACT_APP_MAPS_API,
 })(MapContainer);

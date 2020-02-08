@@ -6,7 +6,9 @@ class Home extends Component {
     return (
     <div className="App">
       <h1 id="title">Moovli</h1>
-      <MapContainer/>
+      <MapContainer
+        onChoice={this.props.onChoice}
+      />
     </div>
     );
   }

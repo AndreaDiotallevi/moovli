@@ -17,7 +17,6 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(`Country: ${this.state.country}`)
     if (this.state.country !== prevState.country) {
       const promises = fetchMovies(this.state.country);
       Promise.all(promises).then(movies => {
@@ -27,10 +26,11 @@ class App extends Component {
   }
 
   render() { 
+    console.log('Country: ', this.state.country);
+    console.log('Movies: ', this.state.movies);
     return (
       <div className='App'>
-        {this.state.movies.length === 0 && <Home onCountryChoice={this.handleCountryChoice}/>}
-        {this.state.movies.length !== 0 && <Movies movies={this.state.movies} country={this.state.country}/>}
+        {<Home onCountryChoice={this.handleCountryChoice}/>}
       </div>
     );
   }

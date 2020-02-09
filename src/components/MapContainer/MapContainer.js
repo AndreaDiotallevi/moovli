@@ -8,11 +8,8 @@ import { Map, GoogleApiWrapper } from 'google-maps-react';
 // .then(res => console.log(res.results[0].formatted_address.split(", ").slice(-1)[0]))
 
 class MapContainer extends Component {
-  onChoice = (t, map, coord) => {
-    const { latLng } = coord;
-    const lat = latLng.lat();
-    const lng = latLng.lng();
-    this.props.onChoice(lat, lng);
+  onCountryChoice = (t, map, coord) => {
+    this.props.onCountryChoice(t, map, coord);
   }
 
   render() {
@@ -21,7 +18,7 @@ class MapContainer extends Component {
         <Map
           google={this.props.google}
           zoom={4}
-          onClick={this.onChoice}
+          onClick={this.onCountryChoice}
           initialCenter={{
             lat: 51.509865,
             lng: -0.118092,

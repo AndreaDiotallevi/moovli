@@ -3,8 +3,8 @@ import React from 'react';
 const Moovies = (props) => {
   return (
     <div data-test='moovies'>
-      <h1>
-        You have chosen {props.country}!
+      <h1 data-test='moovies-country-message'>
+        You have choosen {props.country}!
       </h1>
       <div data-test='moovies-container'>
         <ul>

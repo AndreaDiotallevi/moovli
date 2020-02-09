@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import Home from './components/Home/Home';
-import Moovies from './components/Moovies/Moovies';
-import moovieTitlesJson from './moovies.json';
+import Movies from './components/Movies/Movies';
+import movieTitlesJson from './movieTitles.json';
 
 class App extends Component {
   state = {
     country: '',
-    moovies: []
+    movies: []
   }
 
   handleCountryChoice = (t, map, coord) => {
@@ -30,14 +30,14 @@ class App extends Component {
   }
 
   fetchMovies(country) {
-    moovieTitlesJson['Italy'].map((title, index) => {
+    movieTitlesJson['Italy'].map((title, index) => {
       // Fetch each title and save properties into objects
     })
-    const moovies = [
+    const movies = [ // Hardcoded at the moment
       {"id": 1, "title": "Title 1"},
       {"id": 2, "title": "Title 2"}
     ]
-    this.setState({moovies: moovies})
+    this.setState({movies: movies})
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -49,8 +49,8 @@ class App extends Component {
   render() { 
     return (
       <div className='App'>
-        {this.state.moovies.length === 0 && <Home onCountryChoice={this.handleCountryChoice}/>}
-        {this.state.moovies.length !== 0 && <Moovies moovies={this.state.moovies} country={this.state.country}/>}
+        {this.state.movies.length === 0 && <Home onCountryChoice={this.handleCountryChoice}/>}
+        {this.state.movies.length !== 0 && <Movies movies={this.state.movies} country={this.state.country}/>}
       </div>
     );
   }

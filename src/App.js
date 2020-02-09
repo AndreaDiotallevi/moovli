@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import Home from './components/Home/Home';
 import Movies from './components/Movies/Movies';
-import movieTitlesJson from './movieTitles.json';
+import fetchCountry from './api/fetchCountry'
+import fetchMoviesData from './api/fetchMoviesData'
+import fetchMoviesTitles from './api/fetchMoviesTitles'
+import fetchMovieData from './api/fetchMovieData';
+
 
 class App extends Component {
   state = {
@@ -11,41 +15,29 @@ class App extends Component {
   }
 
   handleCountryChoice = (t, map, coord) => {
-    const { latLng } = coord;
-    const lat = latLng.lat();
-    const lng = latLng.lng();
-    this.fetchCountry(lat, lng);
-  }
-
-  fetchCountry = (lat, lng) => {
-    const apiKey = process.env.REACT_APP_GEO_CODE_API
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`
-    fetch(url)
-      .then(res => (res.ok ? res : Promise.reject(res)))
-      .then(res => res.json())
-      .then(res => {
-        const country = res.results.slice(-1)[0].address_components[0].long_name;
-        console.log(`Country choosen: ${country}`);
-        this.setState({country});
-      })
-  }
-
-  fetchMovies(country) {
-    const apiKey = process.env.REACT_APP_MAPS_API
-    movieTitlesJson['Italy'].map((title, index) => {
-      // Fetch each title and save properties into objects
-      // `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&page=1&include_adult=false&query=the-kite-runner`
-    })
-    const movies = [ // Hardcoded at the moment
-      {"id": 1, "title": "Title 1"},
-      {"id": 2, "title": "Title 2"}
-    ]
-    this.setState({movies})
+    fetchCountry(t, map, coord).then(data =>
+      this.setState({country: data.results.slice(-1)[0].address_components[0].long_name})) // short_name in case we need country codes
   }
 
   componentDidUpdate(prevProps, prevState) {
+    console.log(`Country: ${this.state.country}`)
     if (this.state.country !== prevState.country) {
-      this.fetchMovies(this.state.country);
+      const moviesTitles = fetchMoviesTitles(this.state.country);
+      const movies = [];
+      moviesTitles.forEach(async (title) => {
+        await fetchMovieData(title).then(response => {
+          if (response.results.length > 0) {
+            movies.push(
+              {
+                id: response.results[0].id,
+                title: response.results[0].title
+              }
+            )
+          }
+        })
+      })
+      console.log(movies)
+      this.setState({movies})
     }
   }
 

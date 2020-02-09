@@ -3,10 +3,7 @@ import './App.css';
 import Home from './components/Home/Home';
 import Movies from './components/Movies/Movies';
 import fetchCountry from './api/fetchCountry'
-import fetchMoviesData from './api/fetchMoviesData'
-import fetchMoviesTitles from './api/fetchMoviesTitles'
-import fetchMovieData from './api/fetchMovieData';
-
+import fetchMovies from './api/fetchMovies'
 
 class App extends Component {
   state = {
@@ -22,22 +19,10 @@ class App extends Component {
   componentDidUpdate(prevProps, prevState) {
     console.log(`Country: ${this.state.country}`)
     if (this.state.country !== prevState.country) {
-      const moviesTitles = fetchMoviesTitles(this.state.country);
-      const movies = [];
-      moviesTitles.forEach(async (title) => {
-        await fetchMovieData(title).then(response => {
-          if (response.results.length > 0) {
-            movies.push(
-              {
-                id: response.results[0].id,
-                title: response.results[0].title
-              }
-            )
-          }
-        })
+      const promises = fetchMovies(this.state.country);
+      Promise.all(promises).then(movies => {
+        this.setState({movies: movies.filter(movie => movie !== undefined)})
       })
-      console.log(movies)
-      this.setState({movies})
     }
   }
 

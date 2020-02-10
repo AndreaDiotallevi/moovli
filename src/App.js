@@ -12,25 +12,25 @@ class App extends Component {
   }
 
   handleCountryChoice = (t, map, coord) => {
-    fetchCountry(t, map, coord).then(data =>
-      this.setState({country: data.results.slice(-1)[0].address_components[0].long_name})) // short_name in case we need country codes
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.country !== prevState.country) {
-      const promises = fetchMovies(this.state.country);
-      Promise.all(promises).then(movies => {
-        this.setState({movies: movies.filter(movie => movie !== undefined)})
-      })
-    }
+    fetchCountry(t, map, coord)
+      .then(response => {
+        const country = response.results.slice(-1)[0].address_components[0].long_name;
+        this.setState({country});
+        console.log('Country: ', country);
+        return this.state.country;
+          }).then(country => Promise.all(fetchMovies(country))
+            ).then(response => {
+              const movies = response.filter(movie => movie !== undefined);
+              this.setState({movies});
+              console.log('Movies: ', movies);
+            })
   }
 
   render() { 
-    console.log('Country: ', this.state.country);
-    console.log('Movies: ', this.state.movies);
     return (
       <div className='App'>
-        {<Home onCountryChoice={this.handleCountryChoice}/>}
+        {this.state.movies.length === 0 && <Home onCountryChoice={this.handleCountryChoice}/>}
+        {this.state.movies.length !== 0 && <Movies movies={this.state.movies} country={this.state.country}/>}
       </div>
     );
   }

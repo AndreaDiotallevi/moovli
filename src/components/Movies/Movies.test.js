@@ -37,4 +37,10 @@ describe('Movies', () => {
     const p = wrapper.find("[data-test='movie-release-date-1']")
     expect(p.text()).toEqual('2020-01-01')
   })
+
+  it('should render the movies vote average', () => {
+    const wrapper = setUp(Movies, {country: 'Poland', movies: [{id: 1, title: 'title', overview: 'overview', releaseDate: '2020-01-01', voteAverage: 9.5 }] });
+    const p = wrapper.find("[data-test='movie-vote-average-1']")
+    expect(p.text()).toEqual('9.5')
+  })
 })

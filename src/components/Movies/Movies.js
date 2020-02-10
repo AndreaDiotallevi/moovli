@@ -21,6 +21,9 @@ const Movies = (props) => (
             <p data-test={`movie-release-date-${movie.id}`}>
               {movie.releaseDate}
             </p>
+            <p data-test={`movie-vote-average-${movie.id}`}>
+              {movie.voteAverage}
+            </p>
           </li>
         ))}
       </ul>

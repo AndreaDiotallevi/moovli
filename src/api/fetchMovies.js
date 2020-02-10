@@ -9,7 +9,8 @@ const fetchMovies = (country) => {
         id: response.results[0].id,
         title: response.results[0].title,
         overview: response.results[0].overview,
-        releaseDate: response.results[0].release_date
+        releaseDate: response.results[0].release_date,
+        voteAverage: response.results[0].vote_average
       };
     }
   }));

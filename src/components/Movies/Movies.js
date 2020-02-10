@@ -11,8 +11,8 @@ const Movies = (props) => (
     <div data-test="movies-container">
       <ul>
         {props.movies.map((movie) => (
-          <li key={movie.id}>
-            <h3>
+          <li id={movie.id}>
+            <h3 data-test={`movie-title-${movie.id}`}>
               {movie.title}
             </h3>
           </li>

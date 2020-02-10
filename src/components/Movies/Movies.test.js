@@ -59,7 +59,6 @@ describe('Movies', () => {
   
   it('should render the movies genre', () => {
     const p = wrapper.find("[data-test='movie-genre-list-1']")
-    console.log(wrapper.debug())
-    expect(p.text()).toEqual('Comedy')
+    expect(p.text()).toEqual('Genre/s: Comedy')
   })
 })

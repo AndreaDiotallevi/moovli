@@ -26,11 +26,15 @@ class App extends Component {
             })
   }
 
-  render() { 
+  handleBackToHome = () => {
+    this.setState({movies: []});
+  }
+
+  render() {
     return (
       <div className='App'>
         {this.state.movies.length === 0 && <Home onCountryChoice={this.handleCountryChoice}/>}
-        {this.state.movies.length !== 0 && <Movies movies={this.state.movies} country={this.state.country}/>}
+        {this.state.movies.length !== 0 && <Movies movies={this.state.movies} country={this.state.country} onBackToHome={this.handleBackToHome}/>}
       </div>
     );
   }

@@ -8,6 +8,10 @@ const fetchMovies = (country) => {
       return {
         id: response.results[0].id,
         title: response.results[0].title,
+        overview: response.results[0].overview,
+        releaseDate: response.results[0].release_date,
+        voteAverage: response.results[0].vote_average,
+        posterUrl: `https://image.tmdb.org/t/p/w200${response.results[0].poster_path}`
       };
     }
   }));

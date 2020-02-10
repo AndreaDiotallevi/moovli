@@ -5,7 +5,7 @@ const Movies = (props) => (
     <h1 data-test="movies-country-message">
         You have choosen
       {' '}
-      {props.country}
+      {props.country}!
 
     </h1>
     <div data-test="movies-container">

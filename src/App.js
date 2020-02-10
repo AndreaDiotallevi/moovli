@@ -27,15 +27,14 @@ class App extends Component {
   }
 
   handleBackToHome = () => {
-    const noCountry = ''
-    this.setState({noCountry})
+    this.setState({movies: []});
   }
 
   render() {
     return (
       <div className='App'>
         {this.state.movies.length === 0 && <Home onCountryChoice={this.handleCountryChoice}/>}
-        {this.state.movies.length !== 0 && <Movies movies={this.state.movies} country={this.state.country} onBacktoHome={this.handleBackToHome}/>}
+        {this.state.movies.length !== 0 && <Movies movies={this.state.movies} country={this.state.country} onBackToHome={this.handleBackToHome}/>}
       </div>
     );
   }

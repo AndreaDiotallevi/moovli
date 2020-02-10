@@ -19,7 +19,7 @@ const Movies = (props) => (
         ))}
       </ul>
     </div>
-    <button onClick={props.OnBackToHome}>Back</button>
+    <button onClick={props.onBackToHome}>Back</button>
   </div>
 );
 

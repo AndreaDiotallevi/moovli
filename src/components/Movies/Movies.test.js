@@ -31,4 +31,10 @@ describe('Movies', () => {
     const p = wrapper.find("[data-test='movie-overview-1']")
     expect(p.text()).toEqual('overview')
   })
+
+  it('should render the movies release date', () => {
+    const wrapper = setUp(Movies, {country: 'Poland', movies: [{id: 1, title: 'title', overview: 'overview', releaseDate: '2020-01-01' }] });
+    const p = wrapper.find("[data-test='movie-release-date-1']")
+    expect(p.text()).toEqual('2020-01-01')
+  })
 })

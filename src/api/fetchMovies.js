@@ -8,6 +8,8 @@ const fetchMovies = (country) => {
       return {
         id: response.results[0].id,
         title: response.results[0].title,
+        overview: response.results[0].overview,
+        releaseDate: response.results[0].release_date
       };
     }
   }));

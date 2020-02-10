@@ -1,5 +1,6 @@
 import fetchMovieData from './fetchMovieData';
 import fetchMoviesTitles from './fetchMoviesTitles';
+import fetchMovieGenre from './fetchMovieGenre' 
 
 const fetchMovies = (country) => {
   const moviesTitles = fetchMoviesTitles(country);
@@ -11,7 +12,8 @@ const fetchMovies = (country) => {
         overview: response.results[0].overview,
         releaseDate: response.results[0].release_date,
         voteAverage: response.results[0].vote_average,
-        posterUrl: `https://image.tmdb.org/t/p/w200${response.results[0].poster_path}`
+        posterUrl: `https://image.tmdb.org/t/p/w200${response.results[0].poster_path}`,
+        genreList: fetchMovieGenre(response.results[0].genre_ids)
       };
     }
   }));

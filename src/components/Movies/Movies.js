@@ -25,7 +25,11 @@ const Movies = (props) => (
               {movie.voteAverage}
             </p>
             <img data-test={`movie-poster-url-${movie.id}`}
-                src={`${movie.posterUrl}`}></img>
+                src={`${movie.posterUrl}`}>
+                </img>
+            <p data-test={`movie-genre-list-${movie.id}`}>
+              Genre/s: {movie.genreList.join(', ')}
+            </p>
           </li>
         ))}
       </ul>

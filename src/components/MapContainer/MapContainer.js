@@ -4,6 +4,11 @@ import { Map, GoogleApiWrapper } from 'google-maps-react';
 class MapContainer extends Component {
   onCountryChoice = (t, map, coord) => {
     this.props.onCountryChoice(t, map, coord);
+    console.log(t)
+    console.log('test')
+    console.log(map)
+    console.log('test 1')
+    console.log(coord)
   }
 
   render() {

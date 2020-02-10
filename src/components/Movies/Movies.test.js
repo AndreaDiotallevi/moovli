@@ -25,4 +25,10 @@ describe('Movies', () => {
     const h3 = wrapper.find("[data-test='movie-title-1']")
     expect(h3.text()).toEqual('title')
   })
+
+  it('should render the movies overview', () => {
+    const wrapper = setUp(Movies, {country: 'Poland', movies: [{id: 1, title: 'title', overview: 'overview'}] });
+    const p = wrapper.find("[data-test='movie-overview-1']")
+    expect(p.text()).toEqual('overview')
+  })
 })

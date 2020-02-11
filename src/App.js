@@ -24,6 +24,11 @@ class App extends Component {
               this.setState({movies});
               console.log('Movies: ', movies);
             })
+      .catch(error => {
+        console.log(error.message)
+      })
+      
+      
   }
 
   handleBackToHome = () => {

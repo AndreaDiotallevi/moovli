@@ -10,17 +10,27 @@ const setUp = (Component, props = {}) => {
 
 describe('Movies', () => {
   let wrapper;
+  let movie1 = {id: 1,
+                 title: 'title',
+                 overview: 'overview',
+                 releaseDate: '2020-01-01',
+                 voteAverage: 9.5,
+                 posterUrl: 'https://image.tmdb.org/t/p/w200/dom2esWWW8C9jS2v7dOhW48LwHh.jpg',
+                 genreList: ['Comedy']
+  }
+  let movie2 = {id: 2,
+      title: 'title crime',
+      overview: 'overview',
+      releaseDate: '2020-01-01',
+      voteAverage: 9.5,
+      posterUrl: 'https://image.tmdb.org/t/p/w200/dom2esWWW8C9jS2v7dOhW48LwHh.jpg',
+      genreList: ['Crime']
+  }
 
   beforeEach(() => {
     wrapper = setUp(Movies, {country: 'Poland',
-                             movies: [{id: 1,
-                                       title: 'title',
-                                       overview: 'overview',
-                                       releaseDate: '2020-01-01',
-                                       voteAverage: 9.5,
-                                       posterUrl: 'https://image.tmdb.org/t/p/w200/dom2esWWW8C9jS2v7dOhW48LwHh.jpg',
-                                       genreList: ['Comedy']
-                                      }]
+                             movies: [movie1],
+                             selectedGenre: null
                             })
   })
 
@@ -63,12 +73,12 @@ describe('Movies', () => {
     expect(p.text()).toEqual('Genre/s: Comedy')
   })
 
-  // it('should be able to filter the movies by genre', () => {
-  //   const dropdown = wrapper.find("[data-test='filter-by-genre-dropdown']")
-  //   expect(dropdown).toHaveLength(1);
-  //   dropdown.simulate('change', {
-  //     target: {value: 'Comedy'}
-  //   });
-  //   expect(dropdown.prop('value')).toEqual('Comedy')
-  // })
+  it('should render a button for filtering movies by genre', () => {
+    const wrapper = setUp(Movies, {country: 'Poland',
+                             movies: [movie1, movie2],
+                             selectedGenre: null
+                            })
+    const button = wrapper.find("[data-test='genre-button-comedy']")
+    expect(button).toHaveLength(1);
+  })
 })

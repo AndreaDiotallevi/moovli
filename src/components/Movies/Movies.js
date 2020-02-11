@@ -34,14 +34,16 @@ class Movies extends Component {
       </h1>
 
       <div>
-        {this.state.genreList.map(genre => <button value={genre} onClick={this.handleGenreChoice}>{genre}</button>)}
+        {this.state.genreList.map(genre => <button value={genre}
+                                                   onClick={this.handleGenreChoice}
+                                                   data-test={`genre-button-${genre.toLocaleLowerCase()}`}>{genre}</button>)}
         <button value={'All'} onClick={this.handleGenreChoice}>All</button>
       </div>
 
       <div data-test="movies-container">
         <ul>
           {this.filterMovies().map(movie => (
-            <li key={movie.id}>
+            <li data-test={`movie-${movie.id}`}>
               <h3 data-test={`movie-title-${movie.id}`}>
                 {movie.title}
               </h3>
@@ -56,7 +58,7 @@ class Movies extends Component {
               </p>
               <img data-test={`movie-poster-url-${movie.id}`}
                   src={`${movie.posterUrl}`}>
-                  </img>
+              </img>
               <p data-test={`movie-genre-list-${movie.id}`}>
                 Genre/s: {movie.genreList.join(', ')}
               </p>

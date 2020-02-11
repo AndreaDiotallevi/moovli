@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Movies from './Movies';
+import { fireEvent } from '@testing-library/react';
 
 const setUp = (Component, props = {}) => {
   const component = shallow(<Component {...props} />);
@@ -61,4 +62,13 @@ describe('Movies', () => {
     const p = wrapper.find("[data-test='movie-genre-list-1']")
     expect(p.text()).toEqual('Genre/s: Comedy')
   })
+
+  // it('should be able to filter the movies by genre', () => {
+  //   const dropdown = wrapper.find("[data-test='filter-by-genre-dropdown']")
+  //   expect(dropdown).toHaveLength(1);
+  //   dropdown.simulate('change', {
+  //     target: {value: 'Comedy'}
+  //   });
+  //   expect(dropdown.prop('value')).toEqual('Comedy')
+  // })
 })

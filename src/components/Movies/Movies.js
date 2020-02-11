@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
-import Dropdown from 'react-dropdown'
 
 class Movies extends Component {
   state = {
-    genreList: ["Action", "Adventure", "Animation", "Comedy", "Crime",
-                "Documentary", "Drama", "Family", "Fantasy", "History",
-                "Horror", "Music", "Mystery", "Romance", "Science Fiction",
-                "TV Movie", "Thriller", "War", "Western"
+    genreList: ["Action", "Comedy", "Crime",
+                "Documentary", "Drama", "History",
+                "Horror", "Music", "Science Fiction",
+                "Thriller", "Western"
     ],
     selectedGenre: null
   }
 
-  _onSelect = (event) => {
-    const value = event.value;
-    this.setState({selectedGenre: value});
+  handleGenreChoice = (event) => {
+    const selectedGenre = event.target.value;
+    this.setState({selectedGenre});
   }
 
   filterMovies = () => {
-    if (this.state.selectedGenre === null) {
+    if (this.state.selectedGenre === 'All' || this.state.selectedGenre === null) {
       return this.props.movies;
     } else {
       return this.props.movies.filter((movie) => movie.genreList.includes(this.state.selectedGenre))
@@ -34,12 +33,15 @@ class Movies extends Component {
         !
       </h1>
 
-      <Dropdown data-test={'filter-by-genre-dropdown'} options={this.state.genreList} onChange={this._onSelect} value={this.genreList} placeholder="Filter by genre" />
-      
+      <div>
+        {this.state.genreList.map(genre => <button value={genre} onClick={this.handleGenreChoice}>{genre}</button>)}
+        <button value={'All'} onClick={this.handleGenreChoice}>All</button>
+      </div>
+
       <div data-test="movies-container">
         <ul>
           {this.filterMovies().map(movie => (
-            <li id={movie.id}>
+            <li key={movie.id}>
               <h3 data-test={`movie-title-${movie.id}`}>
                 {movie.title}
               </h3>

@@ -5,7 +5,7 @@ import fetchMovieGenre from './fetchMovieGenre'
 const fetchMovies = (country) => {
   const moviesTitles = fetchMoviesTitles(country);
   return moviesTitles.map(async (title) => await fetchMovieData(title).then((response) => {
-    if (response.results.length > 0) {
+    if (response.results.length > 0 && response.results[0].vote_average > 0 && response.results[0].poster_path != null) {
       return {
         id: response.results[0].id,
         title: response.results[0].title,

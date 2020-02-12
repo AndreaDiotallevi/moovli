@@ -33,7 +33,7 @@ ul {
 
 .movie-info {
   flex-direction: column;
-  background-color: rgb(235,235,235, 0.8);
+  background-color: #6c757d;
   margin-right: 25px;
 }
 
@@ -44,8 +44,10 @@ h2,p {
 
 p {
   font-size: 18px;
+  color: rgb(230, 230, 230);
 }
 
 h2 {
   font-size: 30px;
+  color: white;
 }

@@ -44,8 +44,8 @@ describe('Movies', () => {
   })
 
   it('should render the movies title', () => {
-    const h3 = wrapper.find("[data-test='movie-title-1']")
-    expect(h3.text()).toEqual('title')
+    const h2 = wrapper.find("[data-test='movie-title-1']")
+    expect(h2.text()).toEqual('title')
   })
 
   it('should render the movies overview', () => {

@@ -44,9 +44,9 @@ class Movies extends Component {
           {this.filterMovies().map(movie => (
             <li className='movie' data-test={`movie-${movie.id}`}>
               <div className='movie-info'>
-                <h3 data-test={`movie-title-${movie.id}`}>
+                <h2 data-test={`movie-title-${movie.id}`}>
                   {movie.title}
-                </h3>
+                </h2>
                 <p data-test={`movie-overview-${movie.id}`}>
                   {movie.overview}
                 </p>

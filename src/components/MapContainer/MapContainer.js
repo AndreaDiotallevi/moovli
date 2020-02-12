@@ -20,8 +20,8 @@ class MapContainer extends Component {
         >
         <InfoWindow
           position = {{
-            lat: (this.props.onClickCoordLat),
-            lng: (this.props.onClickCoordLng),
+            lat: (this.props.onClickCoordLatLng[0]),
+            lng: (this.props.onClickCoordLatLng[1]),
           }}
           visible={this.props.noMovies}>
             <div>

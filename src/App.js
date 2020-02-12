@@ -10,8 +10,7 @@ class App extends Component {
     country: '',
     movies: [],
     noMovie: null,
-    onClickCoordLat: null,
-    onClickCoordLng: null
+    onClickCoordLatLng: []
   }
 
   handleCountryChoice = (t, map, coord) => {
@@ -20,7 +19,6 @@ class App extends Component {
         const country = response.results.slice(-1)[0].address_components[0].long_name;
         this.setState({country});
         console.log('Country: ', country);
-        this.setState({noMovies: null})
         return this.state.country;
           }).then(country => Promise.all(fetchMovies(country))
             ).then(response => {
@@ -34,8 +32,8 @@ class App extends Component {
           const lat = latLng.lat();
           const lng = latLng.lng();
           this.setState({noMovies: true})
-          this.setState({onClickCoordLat: lat})
-          this.setState({onClickCoordLng: lng})
+          this.setState({onClickCoordLatLng: [lat, lng]})
+          console.log(this.state.onClickCoordLatLng)
         })
       
       
@@ -48,7 +46,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        {this.state.movies.length === 0 && <Home onCountryChoice={this.handleCountryChoice} noMovies={this.state.noMovies} onClickCoordLat={this.state.onClickCoordLat}  onClickCoordLng={this.state.onClickCoordLng}/>}
+        {this.state.movies.length === 0 && <Home onCountryChoice={this.handleCountryChoice} noMovies={this.state.noMovies} onClickCoordLatLng={this.state.onClickCoordLatLng}/>}
         {this.state.movies.length !== 0 && <Movies movies={this.state.movies} country={this.state.country} onBackToHome={this.handleBackToHome}/>}
       </div>
     );

@@ -6,8 +6,7 @@ const Home = (props) => (
     <h1 data-test="app-title">Moovli</h1>
     <MapContainer
       noMovies={props.noMovies}
-      onClickCoordLat ={props.onClickCoordLat}
-      onClickCoordLng ={props.onClickCoordLng}
+      onClickCoordLatLng ={props.onClickCoordLatLng}
       onCountryChoice={props.onCountryChoice}
     />
   </div>

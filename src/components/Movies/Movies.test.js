@@ -38,9 +38,9 @@ describe('Movies', () => {
     expect(wrapper).toHaveLength(1);
   })
 
-  it("should render 'You have choosen Poland! when clicked within UK", () => {
+  it("should render 'You Have Chosen Poland! when clicked within UK", () => {
     const h1 = wrapper.find("[data-test='movies-country-message']");
-    expect(h1.text()).toEqual('You have choosen Poland!');
+    expect(h1.text()).toEqual('You Have Chosen Poland!');
   })
 
   it('should render the movies title', () => {

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Movies extends Component {
   state = {
     genreList: ["Action", "Comedy", "Crime",
-                "Documentary", "Drama", "History",
+                "Drama", "History",
                 "Horror", "Music", "Science Fiction",
                 "Thriller", "Western"
     ],
@@ -27,12 +27,14 @@ class Movies extends Component {
     return (
       <div className='movies-component' data-test="movies">
         <div className='movies-component-header'>
+          <button className='back-home-button' onClick={this.props.onBackToHome}>Back</button>
           <h1 className='movies-country-message' data-test="movies-country-message">
-            You have choosen
+            You Have Chosen
             {' '}
             {this.props.country}
             !
           </h1>
+          <button></button>
         </div>
         <div className='genre-buttons'>
           {this.state.genreList.map(genre => <button value={genre}
@@ -71,7 +73,6 @@ class Movies extends Component {
           ))}
         </ul>
       </div>
-      <button onClick={this.props.onBackToHome}>Back</button>
     </div>
     );
   }

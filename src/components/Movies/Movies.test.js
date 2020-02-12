@@ -15,7 +15,7 @@ describe('Movies', () => {
                  overview: 'overview',
                  releaseDate: '2020-01-01',
                  voteAverage: 9.5,
-                 posterUrl: 'https://image.tmdb.org/t/p/w200/dom2esWWW8C9jS2v7dOhW48LwHh.jpg',
+                 posterUrl: 'https://image.tmdb.org/t/p/w400/dom2esWWW8C9jS2v7dOhW48LwHh.jpg',
                  genreList: ['Comedy']
   }
   let movie2 = {id: 2,
@@ -23,7 +23,7 @@ describe('Movies', () => {
       overview: 'overview',
       releaseDate: '2020-01-01',
       voteAverage: 9.5,
-      posterUrl: 'https://image.tmdb.org/t/p/w200/dom2esWWW8C9jS2v7dOhW48LwHh.jpg',
+      posterUrl: 'https://image.tmdb.org/t/p/w400/dom2esWWW8C9jS2v7dOhW48LwHh.jpg',
       genreList: ['Crime']
   }
 
@@ -42,7 +42,7 @@ describe('Movies', () => {
     const h1 = wrapper.find("[data-test='movies-country-message']");
     expect(h1.text()).toEqual('You have choosen Poland!');
   })
-  
+
   it('should render the movies title', () => {
     const h3 = wrapper.find("[data-test='movie-title-1']")
     expect(h3.text()).toEqual('title')
@@ -65,9 +65,9 @@ describe('Movies', () => {
 
   it('should render the movies poster', () => {
     const img = wrapper.find("[data-test='movie-poster-url-1']")
-    expect(img.props().src).toEqual('https://image.tmdb.org/t/p/w200/dom2esWWW8C9jS2v7dOhW48LwHh.jpg')
+    expect(img.props().src).toEqual('https://image.tmdb.org/t/p/w400/dom2esWWW8C9jS2v7dOhW48LwHh.jpg')
   })
-  
+
   it('should render the movies genre', () => {
     const p = wrapper.find("[data-test='movie-genre-list-1']")
     expect(p.text()).toEqual('Genre/s: Comedy')

@@ -72,3 +72,13 @@ button {
   font-weight: bold;
   justify-content: space-between;
 }
+
+.movies-component-header {
+  background-color: rgb(50, 50, 50);
+  width: 100%;
+}
+
+.movies-country-message {
+  color: white;
+  text-align: center;
+}

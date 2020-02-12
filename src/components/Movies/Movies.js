@@ -26,22 +26,24 @@ class Movies extends Component {
   render() {
     return (
       <div className='movies-component' data-test="movies">
-        <h1 data-test="movies-country-message">
-          You have choosen
-          {' '}
-          {this.props.country}
-          !
-        </h1>
-      <div className='genre-buttons'>
-        {this.state.genreList.map(genre => <button value={genre}
-                                                   onClick={this.handleGenreChoice}
-                                                   data-test={`genre-button-${genre.toLocaleLowerCase()}`}>{genre}</button>)}
-        <button value={'All'} onClick={this.handleGenreChoice}>All</button>
-      </div>
+        <div className='movies-component-header'>
+          <h1 className='movies-country-message' data-test="movies-country-message">
+            You have choosen
+            {' '}
+            {this.props.country}
+            !
+          </h1>
+        </div>
+        <div className='genre-buttons'>
+          {this.state.genreList.map(genre => <button value={genre}
+                                                     onClick={this.handleGenreChoice}
+                                                     data-test={`genre-button-${genre.toLocaleLowerCase()}`}>{genre}</button>)}
+          <button value={'All'} onClick={this.handleGenreChoice}>All</button>
+        </div>
 
-      <div className='movies-container' data-test="movies-container">
-        <ul>
-          {this.filterMovies().map(movie => (
+        <div className='movies-container' data-test="movies-container">
+          <ul>
+            {this.filterMovies().map(movie => (
             <li className='movie' data-test={`movie-${movie.id}`}>
               <div className='movie-info'>
                 <h2 data-test={`movie-title-${movie.id}`}>

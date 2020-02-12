@@ -1,3 +1,11 @@
+*{
+  border: 2px solid red;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+}
 
 .App {
   font-family: 'Open Sans', sans-serif;
@@ -5,7 +13,33 @@
   flex-direction: column;
 }
 
+.movies-component {
+  display: flex;
+  flex-direction: column;
+}
+
 .movies-container {
   display: flex;
   flex-direction: column;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie {
+  display: flex;
+}
+
+
+
+
+.movie-info {
+  /* width: 50%; */
+  flex-direction: column;
+}
+
+.movie-image {
+  /* width: 50%; */
 }

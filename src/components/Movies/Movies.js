@@ -25,7 +25,7 @@ class Movies extends Component {
 
   render() {
     return (
-      <div className='movies-container' data-test="movies">
+      <div className='movies-component' data-test="movies">
         <h1 data-test="movies-country-message">
           You have choosen
           {' '}
@@ -39,7 +39,7 @@ class Movies extends Component {
         <button value={'All'} onClick={this.handleGenreChoice}>All</button>
       </div>
 
-      <div data-test="movies-container">
+      <div className='movies-container' data-test="movies-container">
         <ul>
           {this.filterMovies().map(movie => (
             <li className='movie' data-test={`movie-${movie.id}`}>

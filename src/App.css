@@ -42,6 +42,7 @@ ul {
   flex-direction: column;
   background-color: #6c757d;
   margin-right: 25px;
+  justify-content: space-between;
 }
 
 h2,p {
@@ -102,4 +103,40 @@ button {
 
 .fake-button {
   background-color: rgb(35, 35, 35);
+}
+
+.genre-button:hover {
+  color: rgb(35, 35, 35);
+  transition: 0.4s;
+}
+
+.movie-vote-average {
+  font-size: 15px;
+}
+
+.movie-genre-list {
+  font-size: 15px;
+}
+
+.average-genres-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.title-overview-container {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
+}
+
+.movie-release-date {
+  font-style: italic;
+}
+
+.average-rating-title {
+  text-decoration: underline;
+  /* border-bottom: 1px solid #6c757d;
+  padding-bottom: 3px; */
+  text-underline-position: under;
 }

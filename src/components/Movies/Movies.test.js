@@ -55,12 +55,12 @@ describe('Movies', () => {
 
   it('should render the movies release date', () => {
     const p = wrapper.find("[data-test='movie-release-date-1']")
-    expect(p.text()).toEqual('2020-01-01')
+    expect(p.text()).toEqual('Date: 2020-01-01')
   })
 
   it('should render the movies vote average', () => {
     const p = wrapper.find("[data-test='movie-vote-average-1']")
-    expect(p.text()).toEqual('9.5')
+    expect(p.text()).toEqual('Average Rating: 9.5')
   })
 
   it('should render the movies poster', () => {
@@ -70,7 +70,7 @@ describe('Movies', () => {
 
   it('should render the movies genre', () => {
     const p = wrapper.find("[data-test='movie-genre-list-1']")
-    expect(p.text()).toEqual('Genre/s: Comedy')
+    expect(p.text()).toEqual('Genres: Comedy')
   })
 
   it('should render a button for filtering movies by genre', () => {

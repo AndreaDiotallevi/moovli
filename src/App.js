@@ -14,7 +14,8 @@ class App extends Component {
   handleCountryChoice = (t, map, coord) => {
     fetchCountry(t, map, coord)
       .then(response => {
-        const country = response.results.slice(-1)[0].address_components[0].long_name;
+        console.log(response)
+        const country = response.address.country;
         this.setState({country});
         console.log('Country: ', country);
         return this.state.country;

@@ -2,7 +2,7 @@
 
 ## Description
 
-## [Live demo](https://serene-ocean-62701.herokuapp.com/)
+## [Live demo](https://moovli.herokuapp.com/)
 
 ## Prerequisites
 

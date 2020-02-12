@@ -22,3 +22,5 @@
 ## Code quality
 
 ## Continuous Integration
+
+CircleCI

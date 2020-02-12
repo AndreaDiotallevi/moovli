@@ -32,7 +32,7 @@ class Movies extends Component {
           {this.props.country}
           !
         </h1>
-      <div>
+      <div className='genre-buttons'>
         {this.state.genreList.map(genre => <button value={genre}
                                                    onClick={this.handleGenreChoice}
                                                    data-test={`genre-button-${genre.toLocaleLowerCase()}`}>{genre}</button>)}

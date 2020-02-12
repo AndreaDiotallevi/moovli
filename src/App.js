@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Home from './components/Home/Home';
 import Movies from './components/Movies/Movies';
+import fetchCountryCode from './api/fetchCountryCode'
 import fetchCountry from './api/fetchCountry'
 import fetchMovies from './api/fetchMovies'
 
@@ -12,10 +13,11 @@ class App extends Component {
   }
 
   handleCountryChoice = (t, map, coord) => {
-    fetchCountry(t, map, coord)
+    fetchCountryCode(t, map, coord)
       .then(response => {
         console.log(response)
-        const country = response.address.country;
+        const countryCode = response.address.country_code;
+        const country = fetchCountry(countryCode);
         this.setState({country});
         console.log('Country: ', country);
         return this.state.country;

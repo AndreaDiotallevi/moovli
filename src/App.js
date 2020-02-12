@@ -9,7 +9,7 @@ class App extends Component {
   state = {
     country: '',
     movies: [],
-    noMovie: null,
+    noMovie: false,
     onClickCoordLatLng: []
   }
 
@@ -17,7 +17,7 @@ class App extends Component {
     fetchCountry(t, map, coord)
       .then(response => {
         const country = response.results.slice(-1)[0].address_components[0].long_name;
-        this.setState({country});
+        this.setState({country, noMovies: false},);
         console.log('Country: ', country);
         return this.state.country;
           }).then(country => Promise.all(fetchMovies(country))
@@ -40,7 +40,7 @@ class App extends Component {
   }
 
   handleBackToHome = () => {
-    this.setState({movies: []});
+    this.setState({movies: [], noMovies: false});
   }
 
   render() {

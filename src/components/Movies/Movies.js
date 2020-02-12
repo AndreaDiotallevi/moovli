@@ -23,45 +23,50 @@ class Movies extends Component {
     }
   }
 
-  render() { 
+  render() {
     return (
-      <div data-test="movies">
-      <h1 data-test="movies-country-message">
-        You have choosen
-        {' '}
-        {this.props.country}
-        !
-      </h1>
+      <div className='movies-component' data-test="movies">
+        <div className='movies-component-header'>
+          <h1 className='movies-country-message' data-test="movies-country-message">
+            You have choosen
+            {' '}
+            {this.props.country}
+            !
+          </h1>
+        </div>
+        <div className='genre-buttons'>
+          {this.state.genreList.map(genre => <button value={genre}
+                                                     onClick={this.handleGenreChoice}
+                                                     data-test={`genre-button-${genre.toLocaleLowerCase()}`}>{genre}</button>)}
+          <button value={'All'} onClick={this.handleGenreChoice}>All</button>
+        </div>
 
-      <div>
-        {this.state.genreList.map(genre => <button value={genre}
-                                                   onClick={this.handleGenreChoice}
-                                                   data-test={`genre-button-${genre.toLocaleLowerCase()}`}>{genre}</button>)}
-        <button value={'All'} onClick={this.handleGenreChoice}>All</button>
-      </div>
-
-      <div data-test="movies-container">
-        <ul>
-          {this.filterMovies().map(movie => (
-            <li data-test={`movie-${movie.id}`}>
-              <h3 data-test={`movie-title-${movie.id}`}>
-                {movie.title}
-              </h3>
-              <p data-test={`movie-overview-${movie.id}`}>
-                {movie.overview}
-              </p>
-              <p data-test={`movie-release-date-${movie.id}`}>
-                {movie.releaseDate}
-              </p>
-              <p data-test={`movie-vote-average-${movie.id}`}>
-                {movie.voteAverage}
-              </p>
-              <img data-test={`movie-poster-url-${movie.id}`}
+        <div className='movies-container' data-test="movies-container">
+          <ul>
+            {this.filterMovies().map(movie => (
+            <li className='movie' data-test={`movie-${movie.id}`}>
+              <div className='movie-info'>
+                <h2 data-test={`movie-title-${movie.id}`}>
+                  {movie.title}
+                </h2>
+                <p data-test={`movie-overview-${movie.id}`}>
+                  {movie.overview}
+                </p>
+                <p data-test={`movie-release-date-${movie.id}`}>
+                  {movie.releaseDate}
+                </p>
+                <p data-test={`movie-vote-average-${movie.id}`}>
+                  {movie.voteAverage}
+                </p>
+                <p data-test={`movie-genre-list-${movie.id}`}>
+                  Genre/s: {movie.genreList.join(', ')}
+                </p>
+              </div>
+              <div className='movie-image'>
+                <img data-test={`movie-poster-url-${movie.id}`}
                   src={`${movie.posterUrl}`}>
-              </img>
-              <p data-test={`movie-genre-list-${movie.id}`}>
-                Genre/s: {movie.genreList.join(', ')}
-              </p>
+                </img>
+              </div>
             </li>
           ))}
         </ul>
@@ -71,5 +76,5 @@ class Movies extends Component {
     );
   }
 }
- 
+
 export default Movies;

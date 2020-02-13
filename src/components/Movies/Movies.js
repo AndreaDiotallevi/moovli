@@ -50,10 +50,12 @@ class Movies extends Component {
             <li className='movie' data-test={`movie-${movie.id}`}>
               <div className='movie-info'>
                 <div className='title-plot-container'>
-                  <h2 data-test={`movie-title-${movie.id}`}>
-                    {movie.title}
-                  </h2>
-                  <a href={`https://www.imdb.com/title/${movie.imdbID}/`}>IMDB</a>
+                  <div className='movie-title-container'> 
+                    <h2 data-test={`movie-title-${movie.id}`}>
+                      {movie.title}
+                    </h2>
+                    <a href={`https://www.imdb.com/title/${movie.imdbID}/`}>IMDB</a>
+                  </div>
                   <p data-test={`movie-plot-${movie.id}`}>
                     {movie.plot}
                   </p>

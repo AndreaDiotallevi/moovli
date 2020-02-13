@@ -99,6 +99,7 @@ button {
 
 .back-home-button {
   background-color: rgb(35, 35, 35);
+  margin-left: 25px;
 }
 
 .fake-button {

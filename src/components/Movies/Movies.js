@@ -65,10 +65,10 @@ class Movies extends Component {
                 </div>
                 <div className='average-genres-container'>
                   <p className='movie-vote-average' data-test={`movie-vote-average-${movie.id}`}>
-                    <span className='average-rating-title'>Average Rating: </span>{movie.voteAverage}
+                    <span className='average-rating-title'>IMDB Rating: </span>{movie.ratings[0].Value.split('/10')[0]}
                   </p>
                   <p className='movie-genre-list' data-test={`movie-genre-list-${movie.id}`}>
-                    Genres: {movie.genreList.join(", ")}
+                    <span className='average-rating-title'>Genres: </span>{movie.genreList.join(", ")}
                   </p>
                 </div>
               </div>

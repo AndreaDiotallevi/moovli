@@ -121,9 +121,9 @@ button {
   font-style: italic;
 }
 
-.average-rating-title {
-  text-decoration: underline;
-  text-underline-position: under;
+.average-rating-title, .movie-genre-title {
+  font-weight: bold;
+  color: white;
 }
 
 img {

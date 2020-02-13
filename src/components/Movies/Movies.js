@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Movies extends Component {
   state = {
     genreList: ["Action", "Comedy", "Crime",
-                "Drama", "History",
+                "Drama", "History", "Romance",
                 "Horror", "Music", "Science Fiction",
                 "Thriller", "Western"
     ],

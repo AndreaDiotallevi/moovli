@@ -10,5 +10,6 @@ module.exports = {
         'no-return-await':'off',
         'consistent-return':'off',
         'react/jsx-props-no-spreading':'off',
+        'import/no-extraneous-dependencies':'off'
     }
 };

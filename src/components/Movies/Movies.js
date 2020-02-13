@@ -56,7 +56,7 @@ class Movies extends Component {
                     </h2>
                     <a href={`https://www.imdb.com/title/${movie.imdbID}/`}><img className='imdb-logo' src={imdbLogo}></img></a>
                   </div>
-                  <p data-test={`movie-plot-${movie.id}`}>
+                  <p className='movie-plot' data-test={`movie-plot-${movie.id}`}>
                     {movie.plot}
                   </p>
                   <p className='movie-release-date' data-test={`movie-release-date-${movie.id}`}>

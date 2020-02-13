@@ -6,14 +6,21 @@
   border: 0;
 }
 
-.App, #root {
+.App, #root, .home-container {
   display: flex;
+  flex-direction: column;
 }
 
 .movies-component, .movies-container, ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.home-header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 .movies-component {
@@ -83,7 +90,7 @@ button {
   justify-content: space-between;
 }
 
-.movies-component-header {
+.movies-component-header, .home-header {
   background-color: rgb(35, 35, 35);
   width: 100%;
   display: flex;
@@ -91,10 +98,17 @@ button {
   justify-content: space-between;
 }
 
-.movies-country-message {
+.movies-country-message, .home-header-title {
   color: white;
   text-align: center;
   margin: 30px 0;
+}
+
+.home-header-title {
+  color: white;
+  text-align: center;
+  margin: 30px 0;
+  margin-left: 25px;
 }
 
 .back-home-button {
@@ -164,3 +178,4 @@ img {
 .movie-plot {
   margin-bottom: 25px;
 }
+

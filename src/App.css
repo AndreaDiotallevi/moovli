@@ -3,13 +3,24 @@
   font-family: 'Open Sans', sans-serif;
   padding: 0;
   margin: 0;
+  border: 0;
+}
 
+.App, #root, .home-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .movies-component, .movies-container, ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.home-header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 .movies-component {
@@ -28,30 +39,31 @@
   justify-content: space-between;
   background-color: white;
   width: 70%;
+  flex-direction: row;
 }
 
 .movie-info {
-  flex-direction: column;
   background-color: #6c757d;
   margin-right: 25px;
   justify-content: space-between;
+  display: flex;
+  flex-direction: column; 
+  width: 60%;
+  padding: 25px;
 }
 
-h2,p {
-  margin-left: 25px;
-  margin-right: 25px;
+.movie-image {
+  width: 40%;
 }
 
 p {
-  font-size: 16px;
+  font-size: 19px;
   color: rgb(230, 230, 230);
-  margin-bottom: 20px;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 32px;
   color: white;
-  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -61,21 +73,24 @@ h2 {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  padding-left: 35px;
-  padding-right: 35px;
+  padding-left: 0;
+  padding-right: 0;
+  flex: 1;
+  right: 0;
+  left: 0;
 }
 
 button {
   background-color: #6c757d;
   color: white;
-  font-size: 16px;
+  font-size: 19px;
   margin: 15px 10px;
   border: none;
   font-weight: bold;
   justify-content: space-between;
 }
 
-.movies-component-header {
+.movies-component-header, .home-header {
   background-color: rgb(35, 35, 35);
   width: 100%;
   display: flex;
@@ -83,14 +98,22 @@ button {
   justify-content: space-between;
 }
 
-.movies-country-message {
+.movies-country-message, .home-header-title {
   color: white;
   text-align: center;
   margin: 30px 0;
 }
 
+.home-header-title {
+  color: white;
+  text-align: center;
+  margin: 30px 0;
+  margin-left: 25px;
+}
+
 .back-home-button {
   background-color: rgb(35, 35, 35);
+  margin-left: 25px;
 }
 
 .fake-button {
@@ -102,12 +125,17 @@ button {
   transition: 0.4s;
 }
 
+.genre-button {
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
 .movie-vote-average {
-  font-size: 14px;
+  font-size: 19px;
 }
 
 .movie-genre-list {
-  font-size: 14px;
+  font-size: 19px;
 }
 
 .average-genres-container {
@@ -118,11 +146,12 @@ button {
 
 .movie-release-date {
   font-style: italic;
+  font-size: 16px;
 }
 
-.average-rating-title {
-  text-decoration: underline;
-  text-underline-position: under;
+.average-rating-title, .movie-genre-title, .movie-release-date-title {
+  font-weight: bold;
+  color: white;
 }
 
 img {
@@ -130,3 +159,23 @@ img {
   padding: 0;
   margin: 0;
 }
+
+.title-plot-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.imdb-logo {
+  width: 70px;
+}
+
+.movie-plot {
+  margin-bottom: 25px;
+}
+

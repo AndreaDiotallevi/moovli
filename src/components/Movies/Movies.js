@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-
+import imdbLogo from '../../imdb.png'; // with import
 class Movies extends Component {
   state = {
     genreList: ["Action", "Comedy", "Crime",
-                "Drama", "History",
-                "Horror", "Music", "Science Fiction",
+                "Drama", "History", "Romance",
+                "Horror", "Music", "Sci-Fi",
                 "Thriller", "Western"
     ],
     selectedGenre: null
@@ -41,7 +41,7 @@ class Movies extends Component {
                                                      value={genre}
                                                      onClick={this.handleGenreChoice}
                                                      data-test={`genre-button-${genre.toLocaleLowerCase()}`}>{genre}</button>)}
-          <button value={'All'} onClick={this.handleGenreChoice}>All</button>
+          <button value={'All'} className='genre-button' onClick={this.handleGenreChoice}>All</button>
         </div>
 
         <div className='movies-container' data-test="movies-container">
@@ -50,23 +50,25 @@ class Movies extends Component {
             <li className='movie' data-test={`movie-${movie.id}`}>
               <div className='movie-info'>
                 <div className='title-plot-container'>
-                  <h2 data-test={`movie-title-${movie.id}`}>
-                    {movie.title}
-                  </h2>
-                  <a href={`https://www.imdb.com/title/${movie.imdbID}/`}>IMDB</a>
-                  <p data-test={`movie-plot-${movie.id}`}>
+                  <div className='movie-title-container'> 
+                    <h2 data-test={`movie-title-${movie.id}`}>
+                      {movie.title}
+                    </h2>
+                    <a href={`https://www.imdb.com/title/${movie.imdbID}/`}><img className='imdb-logo' src={imdbLogo}></img></a>
+                  </div>
+                  <p className='movie-plot' data-test={`movie-plot-${movie.id}`}>
                     {movie.plot}
                   </p>
                   <p className='movie-release-date' data-test={`movie-release-date-${movie.id}`}>
-                    Date: {movie.releaseDate}
+                    <span className='movie-release-date-title'></span>{movie.releaseDate}
                   </p>
                 </div>
                 <div className='average-genres-container'>
                   <p className='movie-vote-average' data-test={`movie-vote-average-${movie.id}`}>
-                    <span className='average-rating-title'>Average Rating: </span>{movie.voteAverage}
+                    <span className='average-rating-title'>IMDB Rating: </span>{movie.ratings[0].Value.split('/10')[0]}
                   </p>
                   <p className='movie-genre-list' data-test={`movie-genre-list-${movie.id}`}>
-                    Genres: {movie.genreList.join(", ")}
+                    <span className='average-rating-title'>Genres: </span>{movie.genreList.join(", ")}
                   </p>
                 </div>
               </div>

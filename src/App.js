@@ -25,7 +25,6 @@ class App extends Component {
         return this.state.country;
           }).then(country => Promise.all(fetchMovies(country))
             ).then(response => {
-              console.log(response);
               const movies = response.filter(movie => movie !== undefined);
               this.setState({movies});
               console.log('Movies: ', movies);

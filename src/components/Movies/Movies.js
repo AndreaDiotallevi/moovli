@@ -60,7 +60,7 @@ class Movies extends Component {
                     {movie.plot}
                   </p>
                   <p className='movie-release-date' data-test={`movie-release-date-${movie.id}`}>
-                    Date: {movie.releaseDate}
+                    <span className='movie-release-date-title'></span>{movie.releaseDate}
                   </p>
                 </div>
                 <div className='average-genres-container'>

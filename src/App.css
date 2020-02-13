@@ -46,12 +46,12 @@
 }
 
 p {
-  font-size: 16px;
+  font-size: 19px;
   color: rgb(230, 230, 230);
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 32px;
   color: white;
   margin-bottom: 20px;
 }
@@ -69,7 +69,7 @@ h2 {
 button {
   background-color: #6c757d;
   color: white;
-  font-size: 16px;
+  font-size: 19px;
   margin: 15px 10px;
   border: none;
   font-weight: bold;
@@ -104,11 +104,11 @@ button {
 }
 
 .movie-vote-average {
-  font-size: 14px;
+  font-size: 19px;
 }
 
 .movie-genre-list {
-  font-size: 14px;
+  font-size: 19px;
 }
 
 .average-genres-container {
@@ -119,9 +119,10 @@ button {
 
 .movie-release-date {
   font-style: italic;
+  font-size: 16px;
 }
 
-.average-rating-title, .movie-genre-title {
+.average-rating-title, .movie-genre-title, .movie-release-date-title {
   font-weight: bold;
   color: white;
 }

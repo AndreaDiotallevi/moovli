@@ -4,7 +4,7 @@ class Movies extends Component {
   state = {
     genreList: ["Action", "Comedy", "Crime",
                 "Drama", "History", "Romance",
-                "Horror", "Music", "Science Fiction",
+                "Horror", "Music", "Sci-Fi",
                 "Thriller", "Western"
     ],
     selectedGenre: null

@@ -41,7 +41,7 @@ class Movies extends Component {
                                                      value={genre}
                                                      onClick={this.handleGenreChoice}
                                                      data-test={`genre-button-${genre.toLocaleLowerCase()}`}>{genre}</button>)}
-          <button value={'All'} onClick={this.handleGenreChoice}>All</button>
+          <button value={'All'} className='genre-button' onClick={this.handleGenreChoice}>All</button>
         </div>
 
         <div className='movies-container' data-test="movies-container">

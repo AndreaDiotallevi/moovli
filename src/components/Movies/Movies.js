@@ -66,6 +66,7 @@ class Movies extends Component {
                     <span className='average-rating-title'>Average Rating: </span>{movie.voteAverage}
                   </p>
                   <p className='movie-genre-list' data-test={`movie-genre-list-${movie.id}`}>
+                    Genres: {movie.genreList.join(", ")}
                   </p>
                 </div>
               </div>

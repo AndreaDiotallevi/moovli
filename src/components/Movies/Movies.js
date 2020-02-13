@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import imdbLogo from '../../imdb.png'; // with import
+import imdbLogo from '../../imdb.png';
+import noPhotoAvailable from '../../no-photo-available.jpg';
+
 class Movies extends Component {
   state = {
     genreList: ["Action", "Comedy", "Crime",
@@ -11,6 +13,7 @@ class Movies extends Component {
   }
 
   handleGenreChoice = (event) => {
+    console.log(event.target.value)
     const selectedGenre = event.target.value;
     this.setState({selectedGenre});
   }
@@ -27,7 +30,7 @@ class Movies extends Component {
     return (
       <div className='movies-component' data-test="movies">
         <div className='movies-component-header'>
-          <button className='back-home-button' onClick={this.props.onBackToHome}>Back</button>
+          <button className='back-home-button' onClick={this.props.onBackToHome}>Home</button>
           <h1 className='movies-country-message' data-test="movies-country-message">
             You Have Chosen
             {' '}
@@ -54,7 +57,7 @@ class Movies extends Component {
                     <h2 data-test={`movie-title-${movie.id}`}>
                       {movie.title}
                     </h2>
-                    <a href={`https://www.imdb.com/title/${movie.imdbID}/`}><img className='imdb-logo' src={imdbLogo}></img></a>
+                    <a href={`https://www.imdb.com/title/${movie.imdbID}/`}><img className='imdb-logo' src={imdbLogo} onerror="this.onerror=null;this.src='../.jpg';"></img></a>
                   </div>
                   <p className='movie-plot' data-test={`movie-plot-${movie.id}`}>
                     {movie.plot}
@@ -74,7 +77,7 @@ class Movies extends Component {
               </div>
               <div className='movie-image'>
                 <img data-test={`movie-poster-url-${movie.id}`}
-                  src={`${movie.posterURL}`}>
+                  src={`${movie.posterURL}`} onError={(e)=>{e.target.onerror = null; e.target.src=`${noPhotoAvailable}`}}>
                 </img>
               </div>
             </li>

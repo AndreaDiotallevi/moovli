@@ -42,7 +42,7 @@ class App extends Component {
 
   handleBackToHome = () => {
     this.setState({movies: [], infoWindowVisibile: false});
-  }
+  };
 
   render() {
     return (

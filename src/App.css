@@ -53,7 +53,7 @@
 }
 
 .movie-image {
-  width: 40%;
+  width: 45%;
 }
 
 p {
@@ -64,7 +64,7 @@ p {
 h2 {
   font-size: 32px;
   color: white;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .genre-buttons {
@@ -131,11 +131,11 @@ button {
 }
 
 .movie-vote-average {
-  font-size: 19px;
+  font-size: 16px;
 }
 
 .movie-genre-list {
-  font-size: 19px;
+  font-size: 16px;
 }
 
 .average-genres-container {
@@ -155,9 +155,9 @@ button {
 }
 
 img {
-  width: 400px;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 
 .title-plot-container {
@@ -168,14 +168,13 @@ img {
 .movie-title-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .imdb-logo {
   width: 70px;
+  margin-top: 6px;
 }
 
 .movie-plot {
   margin-bottom: 25px;
 }
-

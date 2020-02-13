@@ -28,13 +28,20 @@
   justify-content: space-between;
   background-color: white;
   width: 70%;
+  flex-direction: row;
 }
 
 .movie-info {
-  flex-direction: column;
   background-color: #6c757d;
   margin-right: 25px;
   justify-content: space-between;
+  display: flex;
+  flex-direction: column; 
+  width: 60%;
+}
+
+.movie-image {
+  width: 40%;
 }
 
 h2,p {
@@ -129,4 +136,9 @@ img {
   width: 400px;
   padding: 0;
   margin: 0;
+}
+
+.title-plot-container {
+  display: flex;
+  flex-direction: column;
 }

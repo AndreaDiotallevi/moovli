@@ -25,7 +25,7 @@ class App extends Component {
         return this.state.country;
           }).then(country => Promise.all(fetchMovies(country))
             ).then(response => {
-              console.log(response)
+              console.log(response);
               const movies = response.filter(movie => movie !== undefined);
               this.setState({movies});
               console.log('Movies: ', movies);
@@ -35,9 +35,8 @@ class App extends Component {
         const { latLng } = coord;
         const lat = latLng.lat();
         const lng = latLng.lng();
-        this.setState({infoWindowVisibile: true})
-        this.setState({onClickCoordLatLng: [lat, lng]})
-        console.log(this.state.onClickCoordLatLng)
+        this.setState({infoWindowVisibile: true});
+        this.setState({onClickCoordLatLng: [lat, lng]});
       })
   }
 

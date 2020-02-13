@@ -6,7 +6,7 @@
 
 }
 
-.root, .App, .movies-component, .movies-container, ul {
+.movies-component, .movies-container, ul {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,14 +30,6 @@
   width: 70%;
 }
 
-.movie-image {
-  right: 0;
-}
-
-ul {
-  padding: 0;
-}
-
 .movie-info {
   flex-direction: column;
   background-color: #6c757d;
@@ -51,7 +43,7 @@ h2,p {
 }
 
 p {
-  font-size: 18px;
+  font-size: 16px;
   color: rgb(230, 230, 230);
   margin-bottom: 20px;
 }
@@ -76,7 +68,7 @@ h2 {
 button {
   background-color: #6c757d;
   color: white;
-  font-size: 18px;
+  font-size: 16px;
   margin: 15px 10px;
   border: none;
   font-weight: bold;
@@ -111,11 +103,11 @@ button {
 }
 
 .movie-vote-average {
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .movie-genre-list {
-  font-size: 15px;
+  font-size: 145px;
 }
 
 .average-genres-container {
@@ -124,19 +116,17 @@ button {
   justify-content: space-between;
 }
 
-.title-overview-container {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between; */
-}
-
 .movie-release-date {
   font-style: italic;
 }
 
 .average-rating-title {
   text-decoration: underline;
-  /* border-bottom: 1px solid #6c757d;
-  padding-bottom: 3px; */
   text-underline-position: under;
+}
+
+img {
+  width: 400px;
+  padding: 0;
+  margin: 0;
 }

@@ -1,19 +1,24 @@
 import fetchMovieData from './fetchMovieData';
 import fetchMoviesTitles from './fetchMoviesTitles';
-import fetchMovieGenre from './fetchMovieGenre'
 
 const fetchMovies = (country) => {
   const moviesTitles = fetchMoviesTitles(country);
   return moviesTitles.map(async (title) => await fetchMovieData(title).then((response) => {
-    if (response.results.length > 0 && response.results[0].vote_average > 0 && response.results[0].poster_path != null) {
+    if (response.Ratings !== '' && response.Poster !== "N/A" && response.imdbID !== undefined) {
       return {
-        id: response.results[0].id,
-        title: response.results[0].title,
-        overview: response.results[0].overview,
-        releaseDate: response.results[0].release_date,
-        voteAverage: response.results[0].vote_average,
-        posterUrl: `https://image.tmdb.org/t/p/w400${response.results[0].poster_path}`,
-        genreList: fetchMovieGenre(response.results[0].genre_ids)
+        imdbID: response.imdbID,
+        title: response.Title,
+        releaseDate: response.Released,
+        genreList: response.Genre.split(", "),
+        director: response.Director,
+        writer: response.Writer,
+        actors: response.Actors,
+        plot: response.Plot,
+        country: response.Country,
+        awards: response.Awards,
+        posterURL: response.Poster,
+        ratings: response.Ratings,
+        production: response.Production
       };
     }
   }));

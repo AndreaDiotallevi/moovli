@@ -23,6 +23,7 @@ class App extends Component {
         return this.state.country;
           }).then(country => Promise.all(fetchMovies(country))
             ).then(response => {
+              console.log(response)
               const movies = response.filter(movie => movie !== undefined);
               this.setState({movies});
               console.log('Movies: ', movies);
@@ -36,8 +37,8 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        {this.state.movies.length === 0 && <Home onCountryChoice={this.handleCountryChoice}/>}
-        {this.state.movies.length !== 0 && <Movies movies={this.state.movies} country={this.state.country} onBackToHome={this.handleBackToHome}/>}
+          {this.state.movies.length === 0 && <Home onCountryChoice={this.handleCountryChoice}/>}
+          {this.state.movies.length !== 0 && <Movies movies={this.state.movies} country={this.state.country} onBackToHome={this.handleBackToHome}/>}
       </div>
     );
   }

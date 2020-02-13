@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import imdbLogo from '../../imdb.png'; // with import
 class Movies extends Component {
   state = {
     genreList: ["Action", "Comedy", "Crime",
@@ -54,7 +54,7 @@ class Movies extends Component {
                     <h2 data-test={`movie-title-${movie.id}`}>
                       {movie.title}
                     </h2>
-                    <a href={`https://www.imdb.com/title/${movie.imdbID}/`}>IMDB</a>
+                    <a href={`https://www.imdb.com/title/${movie.imdbID}/`}><img className='imdb-logo' src={imdbLogo}></img></a>
                   </div>
                   <p data-test={`movie-plot-${movie.id}`}>
                     {movie.plot}

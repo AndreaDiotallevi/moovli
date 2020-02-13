@@ -62,8 +62,8 @@ h2 {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  padding-left: 35px;
-  padding-right: 35px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 button {
@@ -141,4 +141,8 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.imdb-logo {
+  width: 70px;
 }

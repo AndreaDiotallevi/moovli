@@ -6,6 +6,9 @@ module.exports = {
         'react/destructuring-assignment':'off',
         'react/prop-types':'off',
         'import/no-named-as-default-member':'off',
-        'import/no-named-as-default':'off'
+        'import/no-named-as-default':'off',
+        'no-return-await':'off',
+        'consistent-return':'off',
+        'react/jsx-props-no-spreading':'off',
     }
 };

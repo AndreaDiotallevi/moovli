@@ -49,12 +49,13 @@ class Movies extends Component {
             {this.filterMovies().map(movie => (
             <li className='movie' data-test={`movie-${movie.id}`}>
               <div className='movie-info'>
-                <div className='title-overview-container'>
+                <div className='title-plot-container'>
                   <h2 data-test={`movie-title-${movie.id}`}>
                     {movie.title}
                   </h2>
-                  <p data-test={`movie-overview-${movie.id}`}>
-                    {movie.overview}
+                  <a href={`https://www.imdb.com/title/${movie.imdbID}/`}>IMDB</a>
+                  <p data-test={`movie-plot-${movie.id}`}>
+                    {movie.plot}
                   </p>
                   <p className='movie-release-date' data-test={`movie-release-date-${movie.id}`}>
                     Date: {movie.releaseDate}
@@ -65,13 +66,13 @@ class Movies extends Component {
                     <span className='average-rating-title'>Average Rating: </span>{movie.voteAverage}
                   </p>
                   <p className='movie-genre-list' data-test={`movie-genre-list-${movie.id}`}>
-                    <span className='movie-genre-title'>Genres: </span>{movie.genreList.join(', ')}
+                    Genres: {movie.genreList.join(", ")}
                   </p>
                 </div>
               </div>
               <div className='movie-image'>
                 <img data-test={`movie-poster-url-${movie.id}`}
-                  src={`${movie.posterUrl}`}>
+                  src={`${movie.posterURL}`}>
                 </img>
               </div>
             </li>

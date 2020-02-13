@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Movies from './Movies';
-import { fireEvent } from '@testing-library/react';
 
 const setUp = (Component, props = {}) => {
   const component = shallow(<Component {...props} />);
@@ -12,18 +11,18 @@ describe('Movies', () => {
   let wrapper;
   let movie1 = {id: 1,
                  title: 'title',
-                 overview: 'overview',
+                 plot: 'plot',
                  releaseDate: '2020-01-01',
                  voteAverage: 9.5,
-                 posterUrl: 'https://image.tmdb.org/t/p/w400/dom2esWWW8C9jS2v7dOhW48LwHh.jpg',
+                 posterURL: 'https://image.tmdb.org/t/p/w400/dom2esWWW8C9jS2v7dOhW48LwHh.jpg',
                  genreList: ['Comedy']
   }
   let movie2 = {id: 2,
       title: 'title crime',
-      overview: 'overview',
+      plot: 'plot',
       releaseDate: '2020-01-01',
       voteAverage: 9.5,
-      posterUrl: 'https://image.tmdb.org/t/p/w400/dom2esWWW8C9jS2v7dOhW48LwHh.jpg',
+      posterURL: 'https://image.tmdb.org/t/p/w400/dom2esWWW8C9jS2v7dOhW48LwHh.jpg',
       genreList: ['Crime']
   }
 
@@ -48,9 +47,9 @@ describe('Movies', () => {
     expect(h2.text()).toEqual('title')
   })
 
-  it('should render the movies overview', () => {
-    const p = wrapper.find("[data-test='movie-overview-1']")
-    expect(p.text()).toEqual('overview')
+  it('should render the movies plot', () => {
+    const p = wrapper.find("[data-test='movie-plot-1']")
+    expect(p.text()).toEqual('plot')
   })
 
   it('should render the movies release date', () => {
@@ -65,6 +64,7 @@ describe('Movies', () => {
 
   it('should render the movies poster', () => {
     const img = wrapper.find("[data-test='movie-poster-url-1']")
+    console.log(wrapper.debug())
     expect(img.props().src).toEqual('https://image.tmdb.org/t/p/w400/dom2esWWW8C9jS2v7dOhW48LwHh.jpg')
   })
 

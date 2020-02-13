@@ -2,6 +2,7 @@
 
 ## Description
 
+
 ```
 Struggling to find a great film? Are you spending hours scrolling down Netflix as your eyes glaze over and you become increasingly bored?
 
@@ -9,6 +10,7 @@ Introducing Moovli - a film suggestion app that allows you to find the best film
 
 ```
 ## [Live demo](https://serene-ocean-62701.herokuapp.com/)
+
 
 ## Prerequisites
 

@@ -17,7 +17,7 @@ describe('Home', () => {
   it("should render the title 'Moovli'", () => {
     const wrapper = setUp(Home, {});
     const h1 = wrapper.find("[data-test='app-title']");
-    expect(h1.text()).toEqual('Moovli');
+    expect(h1.text()).toEqual('Moovli - Click on a country and find the best movies from that country!');
     expect
   })
   

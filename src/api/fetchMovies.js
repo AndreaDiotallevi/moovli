@@ -4,7 +4,7 @@ import fetchMoviesTitles from './fetchMoviesTitles';
 const fetchMovies = (country) => {
   const moviesTitles = fetchMoviesTitles(country);
   return moviesTitles.map(async (title) => await fetchMovieData(title).then((response) => {
-    if (response.Ratings !== '' && response.Poster !== "N/A" && response.imdbID !== undefined) {
+    if (response.Poster !== "N/A" && response.imdbID !== undefined && response.imdbRating !== undefined) {
       return {
         imdbID: response.imdbID,
         title: response.Title,
@@ -17,7 +17,7 @@ const fetchMovies = (country) => {
         country: response.Country,
         awards: response.Awards,
         posterURL: response.Poster,
-        ratings: response.Ratings,
+        imdbRating: response.imdbRating,
         production: response.Production
       };
     }

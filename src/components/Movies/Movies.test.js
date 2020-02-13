@@ -13,7 +13,7 @@ describe('Movies', () => {
                  title: 'title',
                  plot: 'plot',
                  releaseDate: '2020-01-01',
-                 ratings: [{"Value": "9.5/10"}],
+                 imdbRating: 9.5,
                  posterURL: 'https://image.tmdb.org/t/p/w400/dom2esWWW8C9jS2v7dOhW48LwHh.jpg',
                  genreList: ['Comedy']
   }
@@ -56,7 +56,6 @@ describe('Movies', () => {
 
   it('should render the movies poster', () => {
     const img = wrapper.find("[data-test='movie-poster-url-1']")
-    console.log(wrapper.debug())
     expect(img.props().src).toEqual('https://image.tmdb.org/t/p/w400/dom2esWWW8C9jS2v7dOhW48LwHh.jpg')
   })
 

@@ -23,4 +23,4 @@
 
 ## Continuous Integration
 
-CircleCI
+[CircleCI](https://circleci.com/)

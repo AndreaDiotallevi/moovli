@@ -14,6 +14,7 @@
 ## How to run the tests
 
 * Run all the tests with ```npm test```
+*
 
 ## Technologies used
 

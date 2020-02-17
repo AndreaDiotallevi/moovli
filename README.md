@@ -22,6 +22,7 @@ Introducing Moovli - a film suggestion app that allows you to find the best film
 ## How to run the tests
 
 * Run all the tests with ```npm test```
+*
 
 ## Technologies used
 
@@ -81,3 +82,5 @@ So that I can read reviews and learn more about the film,
 I would like to see a link to the IMDB page of each film.
 
 ```
+=======
+[CircleCI](https://circleci.com/)

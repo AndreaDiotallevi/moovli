@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import imdbLogo from '../../imdb.png'; // with import
+import imdbLogo from '../../imdb.png';
+import noPhotoAvailable from '../../no-photo-available.jpg';
+
 class Movies extends Component {
   state = {
     genreList: ["Action", "Comedy", "Crime",
@@ -11,6 +13,7 @@ class Movies extends Component {
   }
 
   handleGenreChoice = (event) => {
+    console.log(event.target.value)
     const selectedGenre = event.target.value;
     this.setState({selectedGenre});
   }
@@ -27,7 +30,7 @@ class Movies extends Component {
     return (
       <div className='movies-component' data-test="movies">
         <div className='movies-component-header'>
-          <button className='back-home-button' onClick={this.props.onBackToHome}>Back</button>
+          <button className='back-home-button' onClick={this.props.onBackToHome}>Home</button>
           <h1 className='movies-country-message' data-test="movies-country-message">
             You Have Chosen
             {' '}
@@ -65,7 +68,7 @@ class Movies extends Component {
                 </div>
                 <div className='average-genres-container'>
                   <p className='movie-vote-average' data-test={`movie-vote-average-${movie.id}`}>
-                    <span className='average-rating-title'>IMDB Rating: </span>{movie.ratings[0].Value.split('/10')[0]}
+                    <span className='average-rating-title'>IMDB Rating: </span>{movie.imdbRating}
                   </p>
                   <p className='movie-genre-list' data-test={`movie-genre-list-${movie.id}`}>
                     <span className='average-rating-title'>Genres: </span>{movie.genreList.join(", ")}
@@ -74,7 +77,7 @@ class Movies extends Component {
               </div>
               <div className='movie-image'>
                 <img data-test={`movie-poster-url-${movie.id}`}
-                  src={`${movie.posterURL}`}>
+                  src={`${movie.posterURL}`} onError={(e)=>{e.target.onerror = null; e.target.src=`${noPhotoAvailable}`}}>
                 </img>
               </div>
             </li>

@@ -104,3 +104,25 @@ So that I can read reviews and learn more about a movie,
 I would like to see a link to the IMDB page for each movie.
 
 ```
+
+## Live Features
+
+* If you go to the Moovli homepage [https://moovli.herokuapp.com](https://moovli.herokuapp.com/) you will see a map of the world:
+
+![Homapage](./images/1-homepage.png)
+
+* If you click on a country that doesn't have any available movie, the info window shows a useful message to the user:
+
+![No Movies](./images/2-no-movies.png)
+
+* If you click on a country that has available movies, you are redirected to the movies page, with the best movies from that country:
+
+![Movies](./images/3-movies.png)
+
+* If you click on one of the genre buttons, you can filter the movies by genre:
+
+![Filter Movies by Genre](./images/4-filter-by-genre.png)
+
+* If you click on the IMDB link, you are redirected to the IMDB web page of the selected movie:
+
+![Imdb Hyperlink](./images/5-imdb.png)

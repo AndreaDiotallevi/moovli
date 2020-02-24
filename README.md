@@ -8,9 +8,17 @@ Struggling to find a great movie? Are you spending hours scrolling down Netflix 
 
 Introducing Moovli - a movie suggestion app that allows you to find the best movies from across the world. Moovli allows users to interact with a map and click on any country to see some of best movies available.
 
-## Live demo
+## Live Demo
 
 The application is deployed to Heroku at this link: [https://moovli.herokuapp.com](https://moovli.herokuapp.com/)
+
+## Challenges and goals
+
+* Build a front-end web application that people would use and have fun playing around with.
+* Use and understand React design patterns and its testing frameworks Jest and Enzyme.
+* Handle nested asynchronous requests from multiple APIs within a React application.
+* Deploy a front-end app to Heroku, given API restrictions for production websites.
+* Use Python to scrape data from the internet and save it into a usable JSON format.
 
 ## Prerequisites
 
@@ -24,7 +32,7 @@ The application is deployed to Heroku at this link: [https://moovli.herokuapp.co
 - Main technologies:
   * [React](https://reactjs.org/): a JavaScript library we used to build the user interface and gather data from external APIs.
   * [Google Maps React](https://www.npmjs.com/package/google-maps-react): a library that includes a helper to wrap around the Google maps API.
-  * [Python](https://www.python.org/): a general purpose programming language we used for web scraping.
+  * [Python](https://www.python.org/): a general purpose programming language we used for web scraping (see [this](https://github.com/AndreaDiotallevi/movie-titles-scraper) helper repository).
   * [CSS Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox): the flexible box layout module makes it easier to design flexible responsive layout structure without using float or positioning.
   
 - External APIs:

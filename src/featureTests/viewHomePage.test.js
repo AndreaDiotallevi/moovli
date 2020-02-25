@@ -18,10 +18,4 @@ describe('User can view the home page', () => {
     expect(h1).toHaveLength(1);
     expect(h1.text()).toEqual("Moovli - Click on a country and find the best movies from that country!");
   })
-
-  // it("should render a map", () => {
-  //   const div = wrapper.find("[data-test='map-container']");
-  //   expect(div).toHaveLength(1);
-  // })
-
 })

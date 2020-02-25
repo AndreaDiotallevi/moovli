@@ -16,6 +16,7 @@ class App extends Component {
   }
 
   handleCountryChoice = async (t, map, coord) => {
+    this.setState({infoWindowVisible: false});
     const [lat, lng] = fetchCoordinates(t, map, coord);
     this.setState({onClickCoordinates: [lat, lng]});
     await fetchCountryCode(lat, lng)
@@ -37,7 +38,7 @@ class App extends Component {
   }
 
   handleBackToHome = () => {
-    this.setState({movies: [], infoWindowVisible: false});
+    this.setState({movies: []});
   };
 
   render() {

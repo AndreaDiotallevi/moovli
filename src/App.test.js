@@ -32,14 +32,13 @@ describe('App', () => {
     const wrapper = setUp(App);
     wrapper.setState({
       movies: ["movie"],
-      infoWindowVisible: true
+      infoWindowVisible: false
     });
     const instance = wrapper.instance();
     jest.spyOn(instance, 'handleBackToHome');
     instance.handleBackToHome();
 
     expect(wrapper.state('movies')).toEqual([]);
-    expect(wrapper.state('infoWindowVisible')).toEqual(false);
   });
 
   it('should be able to handle a country choice', async () => {

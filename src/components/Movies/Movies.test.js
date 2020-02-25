@@ -10,7 +10,7 @@ const setUp = (Component, props = {}) => {
 describe('Movies', () => {
   let wrapper;
   const movie1 = {
-    id: 1,
+    imdbID: 1,
     title: 'title',
     plot: 'plot',
     releaseDate: '2020-01-01',

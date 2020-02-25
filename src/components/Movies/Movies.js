@@ -51,33 +51,33 @@ class Movies extends Component {
         <div className='movies-container' data-test="movies-container">
           <ul>
             {this.filterMovies().map((movie, index) => (
-            <li className='movie' data-test={`movie-${movie.id}`} key={index}>
+            <li className='movie' data-test={`movie-${movie.imdbID}`} key={index}>
               <div className='movie-info'>
                 <div className='title-plot-container'>
                   <div className='movie-title-container'> 
-                    <h2 data-test={`movie-title-${movie.id}`}>
+                    <h2 data-test={`movie-title-${movie.imdbID}`}>
                       {movie.title}
                     </h2>
                     <a href={`https://www.imdb.com/title/${movie.imdbID}/`}><img className='imdb-logo' src={imdbLogo}></img></a>
                   </div>
-                  <p className='movie-plot' data-test={`movie-plot-${movie.id}`}>
+                  <p className='movie-plot' data-test={`movie-plot-${movie.imdbID}`}>
                     {movie.plot}
                   </p>
-                  <p className='movie-release-date' data-test={`movie-release-date-${movie.id}`}>
+                  <p className='movie-release-date' data-test={`movie-release-date-${movie.imdbID}`}>
                     <span className='movie-release-date-title'></span>{movie.releaseDate}
                   </p>
                 </div>
                 <div className='average-genres-container'>
-                  <p className='movie-vote-average' data-test={`movie-vote-average-${movie.id}`}>
+                  <p className='movie-vote-average' data-test={`movie-vote-average-${movie.imdbID}`}>
                     <span className='average-rating-title'>IMDB Rating: </span>{movie.imdbRating}
                   </p>
-                  <p className='movie-genre-list' data-test={`movie-genre-list-${movie.id}`}>
+                  <p className='movie-genre-list' data-test={`movie-genre-list-${movie.imdbID}`}>
                     <span className='average-rating-title'>Genres: </span>{movie.genreList.join(", ")}
                   </p>
                 </div>
               </div>
               <div className='movie-image'>
-                <img data-test={`movie-poster-url-${movie.id}`}
+                <img data-test={`movie-poster-url-${movie.imdbID}`}
                   src={`${movie.posterURL}`} onError={(e)=>{e.target.onerror = null; e.target.src=`${noPhotoAvailable}`}}>
                 </img>
               </div>

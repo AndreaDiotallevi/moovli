@@ -26,6 +26,10 @@ class Movies extends Component {
     }
   }
 
+  handleImageUrlError = (event) => {
+    event.target.src = noPhotoAvailable;
+  }
+
   render() {
     return (
       <div className='movies-component' data-test="movies">
@@ -78,7 +82,7 @@ class Movies extends Component {
               </div>
               <div className='movie-image'>
                 <img data-test={`movie-poster-url-${movie.imdbID}`}
-                  src={`${movie.posterURL}`} onError={(e)=>{e.target.onerror = null; e.target.src=`${noPhotoAvailable}`}}>
+                  src={`${movie.posterURL}`} onError={this.handleImageUrlError}>
                 </img>
               </div>
             </li>

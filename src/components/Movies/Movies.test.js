@@ -61,6 +61,29 @@ describe('Movies', () => {
     expect(img.props().src).toEqual('https://image.tmdb.org/t/p/w400/dom2esWWW8C9jS2v7dOhW48LwHh.jpg');
   });
 
+  it('should call onError when passed bad src', () => {
+    const movieWithNoPoster = {
+      imdbID: 1,
+      title: 'title',
+      plot: 'plot',
+      releaseDate: '2020-01-01',
+      imdbRating: 9.5,
+      posterURL: 'https://notExistent',
+      genreList: ['Comedy']
+    }
+    wrapper = setUp(Movies, {
+      country: 'Poland',
+      movies: [movieWithNoPoster],
+      selectedGenre: null,
+    });
+    const instance = wrapper.instance();
+    jest.spyOn(instance, 'handleImageUrlError');
+    const mockedEvent = { target: { onerror: null } };
+    instance.handleImageUrlError(mockedEvent);
+
+    expect(instance.handleImageUrlError).toHaveBeenCalledWith(mockedEvent);
+  });
+
   it('should render the movies genre', () => {
     const p = wrapper.find("[data-test='movie-genre-list-1']");
     expect(p.text()).toEqual('Genres: Comedy');
@@ -68,6 +91,7 @@ describe('Movies', () => {
 
   it('should be able to filter the movies by genre', () => {
     expect(wrapper.state('selectedGenre')).toEqual(null);
+
     const instance = wrapper.instance();
     jest.spyOn(instance, 'handleGenreChoice');
     const button = wrapper.find("[data-test='genre-button-comedy']");

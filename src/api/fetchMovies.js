@@ -8,11 +8,11 @@ const fetchMovies = (country) => {
       return {
         imdbID: response.imdbID,
         title: response.Title,
-        releaseDate: response.Released,
-        genreList: response.Genre.split(', '),
         plot: response.Plot,
-        posterURL: response.Poster,
+        releaseDate: response.Released,
         imdbRating: response.imdbRating,
+        posterURL: response.Poster,
+        genreList: response.Genre.split(', '),
       };
     }
   }));

@@ -5,17 +5,20 @@ import Movies from './components/Movies/Movies';
 import fetchCountryCode from './api/fetchCountryCode'
 import fetchMovies from './api/fetchMovies'
 import countryCodesJson from './countryCodes.json';
+import fetchCoordinates from './api/fetchCoordinates';
 
 class App extends Component {
   state = {
     country: '',
     movies: [],
     infoWindowVisible: false,
-    onClickCoordLatLng: []
+    onClickCoordinates: []
   }
 
   handleCountryChoice = async (t, map, coord) => {
-    await fetchCountryCode(t, map, coord)
+    const [lat, lng] = fetchCoordinates(t, map, coord);
+    this.setState({onClickCoordinates: [lat, lng]});
+    await fetchCountryCode(lat, lng)
       .then(response => {
         const countryCode = response.address.country_code;
         const country = countryCodesJson[countryCode];
@@ -29,12 +32,7 @@ class App extends Component {
               console.log('Movies: ', movies);
             })
       .catch(error => {
-        console.log('Error caught')
-        const { latLng } = coord;
-        const lat = latLng.lat();
-        const lng = latLng.lng();
         this.setState({infoWindowVisible: true});
-        this.setState({onClickCoordLatLng: [lat, lng]});
       })
   }
 
@@ -45,7 +43,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        {this.state.movies.length === 0 && <Home onCountryChoice={this.handleCountryChoice} infoWindowVisible={this.state.infoWindowVisible} onClickCoordLatLng={this.state.onClickCoordLatLng}/>}
+        {this.state.movies.length === 0 && <Home onCountryChoice={this.handleCountryChoice} infoWindowVisible={this.state.infoWindowVisible} onClickCoordinates={this.state.onClickCoordinates}/>}
         {this.state.movies.length !== 0 && <Movies movies={this.state.movies} country={this.state.country} onBackToHome={this.handleBackToHome}/>}
       </div>
     );

@@ -1,8 +1,8 @@
 import fetchMovieData from './fetchMovieData';
-import fetchMoviesTitles from './fetchMoviesTitles';
+import movieTitlesJson from '../movieTitles.json';
 
 const fetchMovies = (country) => {
-  const moviesTitles = fetchMoviesTitles(country);
+  const moviesTitles = movieTitlesJson[country];
   return moviesTitles.map(async (title) => await fetchMovieData(title).then((response) => {
     if (response.imdbID !== undefined) {
       return {

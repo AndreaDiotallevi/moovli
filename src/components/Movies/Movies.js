@@ -13,7 +13,6 @@ class Movies extends Component {
   }
 
   handleGenreChoice = (event) => {
-    console.log(event.target.value)
     const selectedGenre = event.target.value;
     this.setState({selectedGenre});
   }

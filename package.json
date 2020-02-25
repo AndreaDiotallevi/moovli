@@ -18,7 +18,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:coverage": "jest --verbose --coverage",
     "eject": "react-scripts eject"
   },
   "jest": {

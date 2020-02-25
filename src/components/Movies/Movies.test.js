@@ -67,12 +67,12 @@ describe('Movies', () => {
   });
 
   it('should render a button for filtering movies by genre', () => {
-    const wrapper2 = setUp(Movies, {
+    wrapper = setUp(Movies, {
       country: 'Poland',
       movies: [movie1],
       selectedGenre: null,
     });
-    const button = wrapper2.find("[data-test='genre-button-comedy']");
+    const button = wrapper.find("[data-test='genre-button-comedy']");
     expect(button).toHaveLength(1);
   });
 });

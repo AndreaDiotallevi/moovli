@@ -66,13 +66,15 @@ describe('Movies', () => {
     expect(p.text()).toEqual('Genres: Comedy');
   });
 
-  it('should render a button for filtering movies by genre', () => {
-    wrapper = setUp(Movies, {
-      country: 'Poland',
-      movies: [movie1],
-      selectedGenre: null,
-    });
+  it('should be able to filter the movies by genre', () => {
+    expect(wrapper.state('selectedGenre')).toEqual(null);
+    const instance = wrapper.instance();
+    jest.spyOn(instance, 'handleGenreChoice');
     const button = wrapper.find("[data-test='genre-button-comedy']");
     expect(button).toHaveLength(1);
+
+    const mockedEvent = { target: { value: 'Comedy' } };
+    button.simulate('click', mockedEvent);
+    expect(wrapper.state('selectedGenre')).toEqual('Comedy');
   });
 });

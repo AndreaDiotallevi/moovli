@@ -28,7 +28,7 @@ class MapContainer extends Component {
               <h1>There are no movies for this country</h1>
             </div>
         </InfoWindow>
-         </Map>
+        </Map>
       </div>
     );
   }

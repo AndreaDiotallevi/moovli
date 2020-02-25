@@ -9,7 +9,7 @@ const Home = (props) => (
     <div className="map-container">
       <MapContainer
         onCountryChoice={props.onCountryChoice}
-        infoWindowVisibile={props.infoWindowVisibile}
+        infoWindowVisible={props.infoWindowVisible}
         onClickCoordLatLng={props.onClickCoordLatLng}
       />
     </div>

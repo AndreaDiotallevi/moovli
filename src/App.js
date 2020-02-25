@@ -10,7 +10,7 @@ class App extends Component {
   state = {
     country: '',
     movies: [],
-    infoWindowVisibile: false,
+    infoWindowVisible: false,
     onClickCoordLatLng: []
   }
 
@@ -20,7 +20,7 @@ class App extends Component {
         console.log(response)
         const countryCode = response.address.country_code;
         const country = fetchCountry(countryCode);
-        this.setState({country, infoWindowVisibile: false});
+        this.setState({country, infoWindowVisible: false});
         console.log('Country: ', country);
         return this.state.country;
           }).then(country => Promise.all(fetchMovies(country))
@@ -34,19 +34,19 @@ class App extends Component {
         const { latLng } = coord;
         const lat = latLng.lat();
         const lng = latLng.lng();
-        this.setState({infoWindowVisibile: true});
+        this.setState({infoWindowVisible: true});
         this.setState({onClickCoordLatLng: [lat, lng]});
       })
   }
 
   handleBackToHome = () => {
-    this.setState({movies: [], infoWindowVisibile: false});
+    this.setState({movies: [], infoWindowVisible: false});
   };
 
   render() {
     return (
       <div className='App'>
-        {this.state.movies.length === 0 && <Home onCountryChoice={this.handleCountryChoice} infoWindowVisibile={this.state.infoWindowVisibile} onClickCoordLatLng={this.state.onClickCoordLatLng}/>}
+        {this.state.movies.length === 0 && <Home onCountryChoice={this.handleCountryChoice} infoWindowVisible={this.state.infoWindowVisible} onClickCoordLatLng={this.state.onClickCoordLatLng}/>}
         {this.state.movies.length !== 0 && <Movies movies={this.state.movies} country={this.state.country} onBackToHome={this.handleBackToHome}/>}
       </div>
     );

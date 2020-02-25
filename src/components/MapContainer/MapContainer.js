@@ -18,7 +18,7 @@ class MapContainer extends Component {
               lat: (this.props.onClickCoordLatLng[0]),
               lng: (this.props.onClickCoordLatLng[1]),
             }}
-            visible={this.props.infoWindowVisibile}>
+            visible={this.props.infoWindowVisible}>
               <div>
                 <h4>There are no movies for this country</h4>
               </div>

@@ -40,17 +40,18 @@ class Movies extends Component {
           <button className='fake-button'></button>
         </div>
         <div className='genre-buttons'>
-          {this.state.genreList.map(genre => <button className='genre-button'
+          {this.state.genreList.map((genre, index) => <button className='genre-button'
                                                      value={genre}
                                                      onClick={this.handleGenreChoice}
-                                                     data-test={`genre-button-${genre.toLocaleLowerCase()}`}>{genre}</button>)}
+                                                     data-test={`genre-button-${genre.toLocaleLowerCase()}`}
+                                                     key={index}>{genre}</button>)}
           <button value={'All'} className='genre-button' onClick={this.handleGenreChoice}>All</button>
         </div>
 
         <div className='movies-container' data-test="movies-container">
           <ul>
-            {this.filterMovies().map(movie => (
-            <li className='movie' data-test={`movie-${movie.id}`}>
+            {this.filterMovies().map((movie, index) => (
+            <li className='movie' data-test={`movie-${movie.id}`} key={index}>
               <div className='movie-info'>
                 <div className='title-plot-container'>
                   <div className='movie-title-container'> 

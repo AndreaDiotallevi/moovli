@@ -10,15 +10,9 @@ const fetchMovies = (country) => {
         title: response.Title,
         releaseDate: response.Released,
         genreList: response.Genre.split(', '),
-        director: response.Director,
-        writer: response.Writer,
-        actors: response.Actors,
         plot: response.Plot,
-        country: response.Country,
-        awards: response.Awards,
         posterURL: response.Poster,
         imdbRating: response.imdbRating,
-        production: response.Production,
       };
     }
   }));

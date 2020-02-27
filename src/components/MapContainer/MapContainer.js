@@ -4,6 +4,7 @@ import { Map, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
 class MapContainer extends Component {
   render() {
     return (
+      <div>
         <Map
           google={this.props.google}
           zoom={4}
@@ -11,12 +12,12 @@ class MapContainer extends Component {
           initialCenter={{
             lat: 51.509865,
             lng: -0.118092,
-            }}
+          }}
         >
           <InfoWindow
             position = {{
-              lat: (this.props.onClickCoordLatLng[0]),
-              lng: (this.props.onClickCoordLatLng[1]),
+              lat: (this.props.onClickCoordinates[0]),
+              lng: (this.props.onClickCoordinates[1]),
             }}
             visible={this.props.infoWindowVisible}>
               <div>
@@ -24,6 +25,7 @@ class MapContainer extends Component {
               </div>
           </InfoWindow>
         </Map>
+      </div>
     );
   }
 }

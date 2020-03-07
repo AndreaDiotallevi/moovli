@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/AndreaDiotallevi/moovli.svg?style=shield)](https://circleci.com/gh/AndreaDiotallevi/moovli) [![Test Coverage](https://api.codeclimate.com/v1/badges/87da0866aaa9dfb4ead6/test_coverage)](https://codeclimate.com/github/AndreaDiotallevi/moovli/test_coverage)</p>
+
 # Moovli
 
 [Description](#description) | [Live Demo](#live-demo) | [The Team](#the-team) | [Challenges and Goals](#challenges-and-goals) | [Features](#features) | [User Stories](#user-stories) | [Getting Started](#getting-started) | [How to Run the Tests](#how-to-run-the-tests) | [How to Run the App](#how-to-run-the-app) | [Design Approach](#design-approach) | [Technologies Used](#technologies-used) | [Code Quality](#code-quality) | [Continuous Integration](#continuous-integration)
